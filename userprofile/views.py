@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .forms import UserCreationEmailForm
-from .forms import EmailAuthenticationForm
+from .forms import UserCreationEmailForm, EmailAuthenticationForm
+from django.contrib.auth import login
 # Create your views here.
 
 def signup(request):
@@ -15,7 +15,7 @@ def signup(request):
 def signin(request):
   form = EmailAuthenticationForm(request.POST or None)
 
-  #if form.is_valid()
-    #login
+  if form.is_valid():
+    login(request,form.get_user())
 
-  return render(request,'singin.html'),{'form':form}
+  return render(request,'singin.html',{'form':form})

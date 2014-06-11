@@ -86,3 +86,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#Backends - Django Learn From Your Back
+#AUTHENTICATION_BACKENDS =(
+  #'userprofile.backends.EmailBackend',
+#)

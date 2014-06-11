@@ -16,9 +16,10 @@ class EmailAuthenticationForm(forms.Form):
   password = forms.CharField(label='Password', widget=forms.PasswordInput)
 
   #Constructor de Clase para Validacion de Argumentos
-  def __init__(self, *args, **kwargs):
+  def __init__(self,*args,**kwargs):
     self.user_cache = None
     super(EmailAuthenticationForm, self).__init__(*args,**kwargs)
+
 
   def clean(self):
     email = self.cleaned_data.get('email')
@@ -34,5 +35,5 @@ class EmailAuthenticationForm(forms.Form):
 
     return self.cleaned_data
 
-  #def get_user(self):
-    #return self.user_cache
+  def get_user(self):
+    return self.user_cache
